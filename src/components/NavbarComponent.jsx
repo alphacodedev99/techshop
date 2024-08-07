@@ -6,6 +6,7 @@ import CategoryComponent from './CategoryComponent';
 import logo from '../assets/logo.png';
 // icons
 import { CiUser,CiHeart,CiShoppingCart } from "react-icons/ci";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 function NavbarComponent() {
     const [toggleHeader, setToggleHeader] = useState(true);
@@ -29,7 +30,14 @@ function NavbarComponent() {
               <div className="flex items-center gap-[15px]">
                 <div className="flex items-center">
                     <CiUser size={28} color="white"/>
-                    <span className="text-whiteColor">Login</span>
+                    {/* Da se ulogujes */}
+                    <SignedOut>
+                      <SignInButton />
+                    </SignedOut>
+                    {/* Kad se ulogujes */}
+                    <SignedIn>
+                      <UserButton showName/>
+                    </SignedIn>
                 </div>
                 <div className="flex items-center gap-[5px]">
                     <CiHeart size={28} color="white"/>
