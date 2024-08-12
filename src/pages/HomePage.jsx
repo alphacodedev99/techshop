@@ -23,10 +23,10 @@ function HomePage() {
 			.catch((err) => console.log(err));
 	}, []);
 	return (
-		<div className='flex flex-wrap items-center justify-center mt-[50px]'>
+		<div className='flex flex-wrap items-center justify-center mt-[50px] gap-[10px] container mx-auto'>
 			{loading ? (
 				allProducts.map((product) => {
-					return <CardProduct key={product.id} />;
+					return <CardProduct key={product.id} product={product} />;
 				})
 			) : (
 				<LoadingComponent size={80}/>
